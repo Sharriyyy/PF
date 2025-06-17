@@ -1,0 +1,33 @@
+---
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+  DropdownSubmenu,
+} from "astro-navbar";
+---
+
+<header class="lg:flex p-5 gap-5">
+  <Astronav>
+    <div class="flex w-full justify-between">
+      <a href="/"
+        ><img
+          class="h-12 w-11"
+          src="/public/rizz/logo2.png"
+          alt=""
+        /></a
+      >
+      <div class="block md:hidden"><MenuIcon class="w-4 h-4 text-white" /></div>
+    </div>
+    <MenuItems class="hidden lg:flex">
+      <ul class="flex flex-col lg:flex-row lg:gap-5">
+        <li>
+         
+        </li>
+      
+      </ul>
+    </MenuItems>
+  </Astronav>
+</header>

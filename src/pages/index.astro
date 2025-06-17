@@ -1,0 +1,208 @@
+---
+import Mainlayout from "../Layout/Mainlayout.astro";
+
+const name = "sharriy";
+---
+
+<Mainlayout
+  title="sharriy - DevOps Wizard"
+  seoTitle="sharriy is a DevOps Engineer"
+  seoDesc="DevOps | Cloud | Automation | CI/CD"
+>
+  <link rel="stylesheet" href="/styles/global.css" />
+   <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css"
+    />
+ 
+</Mainlayout>
+<!-- TERMINAL CONTAINER (with pixel font & dark terminal) -->
+<div id="terminal" class="w-10/12 md:w-8/12 mx-auto mt-10 rounded-lg border border-zinc-800 shadow-lg" style="font-family: 'Pixelify Sans', monospace;"></div>
+
+<!-- HERO SECTION -->
+<div class="min-h-screen bg-black text-white flex flex-col justify-center">
+  <div class="w-10/12 md:w-7/12 mx-auto mb-32">
+    <br>  
+    <h1 class="text-4xl md:text-5xl text-center font-bold mb-6">
+      Hey there, 👋 I'm <span class="text-green-400">sharriy</span>
+    </h1>
+    <div id="typed-strings">
+      <p>I’m a <strong>DevOps Engineer</strong></p>
+      <p>I automate CI/CD pipelines using Jenkins & GitHub Actions</p>
+      <p>I containerize apps with Docker & scale them on Kubernetes</p>
+      <p>I work across AWS, Azure, and modern IaaS platforms</p>
+    </div>
+    <div class="text-center text-xl text-gray-300"><span id="typed"></span></div>
+  </div>
+
+  
+
+<!-- CTA / HARDTRUTH -->
+<div class="dmin-h-screen flex flex-col justify-center items-center mt-16">
+  <button class="px-6 py-3 text-6xl font-bold bg-red-600 text-white rounded-xl shadow-xl">
+    HARDTRUTH
+  </button>
+  <h1 class="text-5xl mt-14 animate-bounce-slow">👇</h1>
+</div>
+
+<!-- TRUTH SECTION -->
+<div class="mt-16 flex flex-col justify-center items-center text-white">
+  <p
+    data-aos="fade-in"
+    data-aos-delay="50"
+    class="text-5xl text-center"
+  >
+    You <span class="text-red-500">CAN'T</span> master DevOps without <strong class="text-green-400">hands-on experience</strong>
+  </p>
+  <h1 class="mt-16 text-lg animate-bounce-slow">logs > lectures 😓</h1>
+</div>
+
+<!-- SOLUTION SECTION -->
+<div class="mt-20 flex flex-col justify-center items-center text-white">
+  <span
+    data-aos="fade-right"
+    class="text-7xl font-bold px-4 bg-green-500 text-black"
+  >
+    SOLUTION
+  </span>
+  <p class="text-3xl text-gray-300 max-w-3xl mt-12 text-center">
+    Get your hands dirty with <span class="text-green-400">Terraform, CI/CD Pipelines, Dockerfiles, Helm Charts</span> — break things and fix them. It’s the <span class="text-yellow-400">DevOps way</span>.
+  </p>
+  <h1 class="text-xl animate-bounce-slow mt-20">but like... where do I start? 🤯</h1>
+</div>
+
+<!-- CTA -->
+<div class="dmin-h-screen flex flex-col justify-center items-center mt-16">
+  <button
+    data-aos="fade-right"
+    class="px-6 py-3 text-6xl font-bold bg-purple-600 text-white rounded-xl shadow-xl"
+  >
+    LET'S SHIP IT 🚀
+  </button>
+</div>
+
+<!-- SOCIAL FOOTER -->
+<div class="mt-20 flex flex-col justify-center items-center text-white">
+  <p class="text-3xl text-gray-300 max-w-3xl text-center">
+    Follow for memes, tools, and terminal magic. <span class="text-yellow-400">PLAY</span> with infra before you pay.
+  </p>
+  <h1 class="text-xl animate-bounce-slow mt-20">💻 #RealEngineersUseLogs</h1>
+  <h1 class="mt-16">
+    <a class="text-blue-400" href="">Fix something? PR it on GitHub</a>
+  </h1>
+  <h1 class="mt-4">
+    <a href="https://github.com/Sharriyyy"><strong class="font-bold">Find me<h1 class="text-green-500">HERE 🤖</h1></strong></a>
+  </h1>
+  <div class="flex justify-center items-center my-4">
+    
+   <a class="w-10 h-10" href="https://github.com/Sharriyyy"><img src="https://static.cdnlogo.com/logos/g/69/github-icon.svg"></a>
+     
+    </a>
+  </div>
+</div>
+
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.min.js"></script>
+<script>
+  import Typed from "typed.js";
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+  var typed = new Typed("#typed", {
+    stringsElement: "#typed-strings",
+    typeSpeed: 50,
+    loop: true,
+    backSpeed: 20,
+    smartBackspace: true,
+  });
+  AOS.init();
+
+
+  
+  
+</script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for xterm to load
+    if (typeof Terminal !== 'undefined') {
+      initTerminal();
+    } else {
+      // Retry after a short delay
+      setTimeout(() => {
+        if (typeof Terminal !== 'undefined') {
+          initTerminal();
+        }
+      }, 100);
+    }
+    
+    function initTerminal() {
+      const term = new Terminal({
+        cursorBlink: true,
+        fontFamily: "'Pixelify Sans', monospace",
+        fontSize: 14,
+        theme: {
+          background: '#0f0f0f',
+          foreground: '#00ff00',
+          cursor: '#00ff00'
+        },
+        cols: 80,
+        rows: 15
+      });
+      
+      const terminalElement = document.getElementById('terminal');
+      if (terminalElement) {
+        term.open(terminalElement);
+        
+        // Welcome message
+        term.write('\r\n\x1b[32mWelcome to sharriy\'s DevOps Terminal!\x1b[0m\r\n');
+        term.write('\x1b[36muser@devops\x1b[0m:\x1b[34m~\x1b[0m$ ');
+        
+        // Simulate some commands
+        setTimeout(() => {
+          term.write('kubectl get pods\r\n');
+          setTimeout(() => {
+            term.write('NAME                         READY   STATUS    RESTARTS   AGE\r\n');
+            term.write('api-service-764fd9fcb8-xyz   1/1     Running   0          2m\r\n');
+            term.write('client-ui-55c9d59cc6-abc     1/1     Running   0          2m\r\n');
+            term.write('jenkins-7b79bdc4dd-wxyz      1/1     Running   1          1h\r\n');
+            term.write('\x1b[36muser@devops\x1b[0m:\x1b[34m~\x1b[0m$ ');
+            
+            setTimeout(() => {
+              term.write('docker ps\r\n');
+              setTimeout(() => {
+                term.write('CONTAINER ID   IMAGE          COMMAND       CREATED       STATUS       PORTS\r\n');
+                term.write('a1b2c3d4e5f6   nginx:latest   "nginx -g…"   2 hours ago   Up 2 hours   80/tcp\r\n');
+                term.write('\x1b[36muser@devops\x1b[0m:\x1b[34m~\x1b[0m$ ');
+                
+                // Make terminal interactive
+                let currentLine = '';
+                term.onData(data => {
+                  if (data === '\r') {
+                    term.write('\r\n');
+                    if (currentLine.trim()) {
+                      term.write(`Command "${currentLine}" executed!\r\n`);
+                    }
+                    term.write('\x1b[36muser@devops\x1b[0m:\x1b[34m~\x1b[0m$ ');
+                    currentLine = '';
+                  } else if (data === '\u007f') { // Backspace
+                    if (currentLine.length > 0) {
+                      currentLine = currentLine.slice(0, -1);
+                      term.write('\b \b');
+                    }
+                  } else {
+                    currentLine += data;
+                    term.write(data);
+                  }
+                });
+              }, 1000);
+            }, 2000);
+          }, 1000);
+        }, 2000);
+      }
+    }
+  });
+</script>
+
