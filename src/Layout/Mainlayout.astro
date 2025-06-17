@@ -2,22 +2,31 @@
 import MainHead from "./MainHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+
 const { title, seoTitle, seoDesc } = Astro.props;
 ---
 
-<html>
-  <MainHead title={title} seoTitle={seoTitle} seoDesc={seoDesc} />
+<html lang="en">
+  <head>
+    <MainHead title={title} seoTitle={seoTitle} seoDesc={seoDesc} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
 
-  <body class="bg-black text-white grid gap-0">
+    <!-- CDN Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.min.js" defer></script>
+
+    <!-- Local Scripts -->
+    <script src="/scripts/hero-typed.js" defer></script>
+    <script src="/scripts/terminal.js" defer></script>
+  </head>
+
+  <body class="bg-black text-white grid gap-0" style="font-family: 'Pixelify Sans', sans-serif; min-height: 100vh;">
     <Nav />
     <slot />
-    <Footer>
-      <style>
-        body {
-          font-family: "Pixelify Sans", sans-serif;
-          min-height: 100vh;
-        }
-      </style>
-    </Footer>
+    <Footer />
   </body>
 </html>
