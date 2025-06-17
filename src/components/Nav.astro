@@ -12,22 +12,37 @@ import {
 <header class="lg:flex p-5 gap-5">
   <Astronav>
     <div class="flex w-full justify-between">
-      <a href="/"
-        ><img
-          class="h-12 w-11"
-          src="/rizz/logo2.png"
-          alt="Logo"
-        /></a
-      >
+   <a href="/" class="relative group block h-12 w-11 overflow-hidden">
+  <!-- Fire GIF (visible on hover) -->
+  <img
+    src="/rizz/fire.gif"
+    alt="fire background"
+    class="absolute top-0 left-0 h-full w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+  />
+
+  <!-- Logo (hides on hover) -->
+  <img
+    src="/rizz/logo2.png"
+    alt="Logo"
+    class="relative h-full w-full group-hover:opacity-0 transition-opacity duration-300 z-20"
+  />
+</a>
+
+
       <div class="block md:hidden"><MenuIcon class="w-4 h-4 text-white" /></div>
     </div>
     <MenuItems class="hidden lg:flex">
-      <ul class="flex flex-col lg:flex-row lg:gap-5">
-        <li>
-         <a  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><h1 class="text-red-500">Don't</h1> click here 💥</a> 
-        </li>
-      
-      </ul>
-    </MenuItems>
+  <ul class="flex flex-col lg:flex-row lg:gap-1 text-center">
+  <li class="w-full"> <!-- tweak this value -->
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text-red-500">
+      <span class="font-bold">Don't</span>  
+      <span class="text-white">Click</span>
+      <span class="text-white">Here</span>
+    </a>
+  </li>
+</ul>
+
+</MenuItems>
+
   </Astronav>
 </header>
