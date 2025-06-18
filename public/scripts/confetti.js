@@ -5,6 +5,25 @@ window.addEventListener("load", () => {
 
   // Preload audio
   const audio = new Audio("/assets/party.mp3");
+  audio.load();
+
+  // ✅ Create full-screen canvas
+  const canvas = document.createElement("canvas");
+  canvas.style.position = "fixed";
+  canvas.style.top = 0;
+  canvas.style.left = 0;
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.zIndex = "9999";
+  canvas.style.pointerEvents = "none";
+  canvas.id = "confetti-canvas";
+  document.body.appendChild(canvas);
+
+  // ✅ Create confetti instance tied to this canvas
+  const myConfetti = confetti.create(canvas, {
+    resize: true,
+    useWorker: true,
+  });
 
   if (btn) {
     btn.addEventListener("click", () => {
@@ -17,13 +36,13 @@ window.addEventListener("load", () => {
       const end = Date.now() + duration;
 
       const frame = () => {
-        confetti({
+        myConfetti({
           particleCount: 7,
           angle: 60,
           spread: 120,
           origin: { x: 0 },
         });
-        confetti({
+        myConfetti({
           particleCount: 7,
           angle: 120,
           spread: 120,
